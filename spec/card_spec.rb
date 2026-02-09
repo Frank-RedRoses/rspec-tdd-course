@@ -9,15 +9,22 @@ end
 
 RSpec.describe Card do
 =begin
+  # Reducing Duplication
   # before hook
   before do
     @card = Card.new('Ace', 'Spades')
   end
+
+  # helper method
+  def card
+    Card.new('Ace', 'Spades')
+  end
 =end
 
-def card
-  Card.new('Ace', 'Spades')
-end
+  # let method
+  let(:card) { Card.new('Ace', 'Spades')}
+  # let!(:x) { 1 + 1 }
+  # let(:y) { x + 10 }
 
   it 'has a rank' do
     expect(card.rank).to eq('Ace')
